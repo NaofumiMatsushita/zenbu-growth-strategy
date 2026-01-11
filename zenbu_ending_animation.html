@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZENBU エンディングアニメーション</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN', 'Yu Gothic', '游ゴシック', 'Meiryo', 'メイリオ', sans-serif;
+            background: linear-gradient(135deg, #003366 0%, #0066cc 100%);
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            width: 1920px;
+            height: 1080px;
+            position: relative;
+            background: linear-gradient(135deg, #003366 0%, #0066cc 100%);
+        }
+
+        /* シーン共通スタイル */
+        .scene {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            animation-fill-mode: forwards;
+        }
+
+        /* シーン1: ZENBUロゴ */
+        .scene1 {
+            animation: fadeIn 1s ease-in 0s forwards, fadeOut 1s ease-out 9s forwards;
+        }
+
+        .logo {
+            font-size: 180px;
+            font-weight: bold;
+            color: white;
+            text-align: center;
+            letter-spacing: 20px;
+            animation: logoScale 2s ease-in-out 0.5s forwards;
+            transform: scale(0.5);
+        }
+
+        .logo-subtitle {
+            font-size: 48px;
+            color: #66ccff;
+            margin-top: 40px;
+            opacity: 0;
+            animation: fadeIn 1s ease-in 2s forwards;
+        }
+
+        /* シーン2: キャッチコピー */
+        .scene2 {
+            animation: fadeIn 1s ease-in 10s forwards, fadeOut 1s ease-out 24s forwards;
+        }
+
+        .catchphrase {
+            font-size: 72px;
+            color: white;
+            text-align: center;
+            line-height: 1.6;
+            opacity: 0;
+            animation: slideUp 1s ease-out 11s forwards;
+        }
+
+        .catchphrase-sub {
+            font-size: 56px;
+            color: #66ccff;
+            margin-top: 60px;
+            opacity: 0;
+            animation: slideUp 1s ease-out 13s forwards;
+        }
+
+        /* シーン3: 事業領域 */
+        .scene3 {
+            animation: fadeIn 1s ease-in 25s forwards, fadeOut 1s ease-out 54s forwards;
+        }
+
+        .business-title {
+            font-size: 64px;
+            color: white;
+            margin-bottom: 80px;
+            opacity: 0;
+            animation: fadeIn 1s ease-in 26s forwards;
+        }
+
+        .business-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            width: 80%;
+        }
+
+        .business-item {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 50px;
+            border-radius: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            opacity: 0;
+        }
+
+        .business-item:nth-child(1) {
+            animation: slideInLeft 0.8s ease-out 28s forwards;
+        }
+
+        .business-item:nth-child(2) {
+            animation: slideInRight 0.8s ease-out 30s forwards;
+        }
+
+        .business-item:nth-child(3) {
+            animation: slideInLeft 0.8s ease-out 32s forwards;
+        }
+
+        .business-item:nth-child(4) {
+            animation: slideInRight 0.8s ease-out 34s forwards;
+        }
+
+        .business-item h3 {
+            font-size: 42px;
+            color: #66ccff;
+            margin-bottom: 20px;
+        }
+
+        .business-item p {
+            font-size: 28px;
+            color: white;
+            line-height: 1.6;
+        }
+
+        /* シーン4: ビジョン */
+        .scene4 {
+            animation: fadeIn 1s ease-in 55s forwards, fadeOut 1s ease-out 74s forwards;
+        }
+
+        .vision-text {
+            font-size: 64px;
+            color: white;
+            text-align: center;
+            line-height: 1.8;
+            max-width: 90%;
+            opacity: 0;
+            animation: zoomIn 1.5s ease-out 56s forwards;
+        }
+
+        .vision-highlight {
+            color: #ffcc00;
+            font-weight: bold;
+            font-size: 72px;
+        }
+
+        /* シーン5: お問い合わせ */
+        .scene5 {
+            animation: fadeIn 1s ease-in 75s forwards;
+        }
+
+        .contact-info {
+            text-align: center;
+            opacity: 0;
+            animation: fadeIn 1s ease-in 76s forwards;
+        }
+
+        .company-name {
+            font-size: 96px;
+            color: white;
+            font-weight: bold;
+            margin-bottom: 60px;
+            letter-spacing: 10px;
+        }
+
+        .contact-details {
+            font-size: 42px;
+            color: #66ccff;
+            margin-bottom: 30px;
+        }
+
+        .website {
+            font-size: 48px;
+            color: white;
+            margin-top: 40px;
+        }
+
+        .tagline {
+            font-size: 36px;
+            color: #ffcc00;
+            margin-top: 60px;
+            font-style: italic;
+        }
+
+        /* パーティクル背景 */
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            animation: float 20s infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-1080px) translateX(100px);
+                opacity: 0;
+            }
+        }
+
+        /* アニメーション定義 */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+
+        @keyframes logoScale {
+            from {
+                transform: scale(0.5);
+                opacity: 0.3;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                transform: translateX(-100px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* コントロールボタン */
+        .controls {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            display: flex;
+            gap: 15px;
+        }
+
+        .control-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid white;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 10px;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s;
+        }
+
+        .control-btn:hover {
+            background: rgba(255, 255, 255, 0.4);
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- パーティクル背景 -->
+        <script>
+            for (let i = 0; i < 50; i++) {
+                document.write(`<div class="particle" style="left: ${Math.random() * 100}%; animation-delay: ${Math.random() * 20}s;"></div>`);
+            }
+        </script>
+
+        <!-- シーン1: ZENBUロゴ -->
+        <div class="scene scene1">
+            <div class="logo">ZENBU</div>
+            <div class="logo-subtitle">株式会社</div>
+        </div>
+
+        <!-- シーン2: キャッチコピー -->
+        <div class="scene scene2">
+            <div class="catchphrase">
+                不動産の「困った」を<br>
+                ゼロにする。
+            </div>
+            <div class="catchphrase-sub">
+                テクノロジーと人の力で
+            </div>
+        </div>
+
+        <!-- シーン3: 事業領域 -->
+        <div class="scene scene3">
+            <div class="business-title">4つのコア事業</div>
+            <div class="business-list">
+                <div class="business-item">
+                    <h3>ソリューション事業</h3>
+                    <p>24時間対応の緊急メンテナンス・トラブル解決</p>
+                </div>
+                <div class="business-item">
+                    <h3>コンサルティング事業</h3>
+                    <p>賃貸管理会社の収益最大化を支援</p>
+                </div>
+                <div class="business-item">
+                    <h3>カスタマーサクセス事業</h3>
+                    <p>建物管理・入居者対応の完全代行</p>
+                </div>
+                <div class="business-item">
+                    <h3>フィールド駆けつけサービス</h3>
+                    <p>サブスク型の定額修繕サービス</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- シーン4: ビジョン -->
+        <div class="scene scene4">
+            <div class="vision-text">
+                日本一信頼される<br>
+                <span class="vision-highlight">アフターサービス<br>
+                プラットフォーム企業</span>へ
+            </div>
+        </div>
+
+        <!-- シーン5: お問い合わせ -->
+        <div class="scene scene5">
+            <div class="contact-info">
+                <div class="company-name">ZENBU株式会社</div>
+                <div class="contact-details">
+                    〒460-0024<br>
+                    愛知県名古屋市中区正木3-13-8 山田ビル3F
+                </div>
+                <div class="contact-details">
+                    TEL: 052-332-6770
+                </div>
+                <div class="website">
+                    https://all-zenbu.co.jp
+                </div>
+                <div class="tagline">
+                    「困った」をゼロに、笑顔を未来へ。
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- コントロールボタン -->
+    <div class="controls">
+        <button class="control-btn" onclick="location.reload()">再生</button>
+        <button class="control-btn" onclick="document.querySelector('.container').style.animationPlayState = 'paused'">一時停止</button>
+    </div>
+
+    <script>
+        // 自動的に90秒後にループ
+        setTimeout(() => {
+            location.reload();
+        }, 90000);
+    </script>
+</body>
+</html>
