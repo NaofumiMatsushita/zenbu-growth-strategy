@@ -102,7 +102,7 @@ const HistoryScreen = ({ navigation }) => {
 
         {item.roomNumber && (
           <View style={styles.locationContainer}>
-            <Icon name="place" size={16} color="#999" />
+            <Icon name="place" size={18} color="rgba(255, 255, 255, 0.6)" />
             <Text style={styles.locationText}>{item.roomNumber}</Text>
           </View>
         )}
@@ -112,9 +112,9 @@ const HistoryScreen = ({ navigation }) => {
             style={styles.deleteButton}
             onPress={() => handleDelete(item.id)}
           >
-            <Icon name="delete-outline" size={20} color="#999" />
+            <Icon name="delete-outline" size={22} color="rgba(255, 255, 255, 0.6)" />
           </TouchableOpacity>
-          <Icon name="chevron-right" size={24} color="#ccc" />
+          <Icon name="chevron-right" size={26} color="rgba(255, 255, 255, 0.4)" />
         </View>
       </TouchableOpacity>
     );
@@ -122,7 +122,7 @@ const HistoryScreen = ({ navigation }) => {
 
   const renderEmpty = () => (
     <View style={styles.emptyContainer}>
-      <Icon name="history" size={64} color="#ccc" />
+      <Icon name="history" size={72} color="rgba(255, 255, 255, 0.3)" />
       <Text style={styles.emptyText}>測定履歴がありません</Text>
       <Text style={styles.emptySubtext}>
         ホーム画面から測定を開始してください
@@ -226,130 +226,147 @@ const HistoryScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f5f5f5',
+    backgroundColor: '#0a0e27',
   },
   filterContainer: {
     flexDirection: 'row',
-    padding: 12,
-    backgroundColor: '#fff',
+    padding: 16,
+    backgroundColor: 'rgba(255, 255, 255, 0.05)',
     borderBottomWidth: 1,
-    borderBottomColor: '#e0e0e0',
+    borderBottomColor: 'rgba(255, 255, 255, 0.1)',
   },
   filterButton: {
     flex: 1,
-    paddingVertical: 8,
+    paddingVertical: 10,
     paddingHorizontal: 16,
     marginHorizontal: 4,
-    borderRadius: 20,
-    backgroundColor: '#f5f5f5',
+    borderRadius: 24,
+    backgroundColor: 'rgba(255, 255, 255, 0.1)',
     alignItems: 'center',
+    borderWidth: 1,
+    borderColor: 'rgba(255, 255, 255, 0.15)',
   },
   filterButtonActive: {
-    backgroundColor: '#0066cc',
+    backgroundColor: '#4fc3f7',
+    borderColor: '#4fc3f7',
   },
   filterText: {
     fontSize: 14,
-    color: '#666',
-    fontWeight: '500',
+    color: 'rgba(255, 255, 255, 0.7)',
+    fontWeight: '600',
   },
   filterTextActive: {
     color: '#fff',
+    fontWeight: '700',
   },
   statsContainer: {
     flexDirection: 'row',
-    backgroundColor: '#fff',
-    padding: 16,
-    marginBottom: 8,
+    backgroundColor: 'rgba(255, 255, 255, 0.08)',
+    padding: 20,
+    marginBottom: 12,
+    marginHorizontal: 16,
+    marginTop: 16,
+    borderRadius: 16,
+    borderWidth: 1,
+    borderColor: 'rgba(255, 255, 255, 0.1)',
   },
   statItem: {
     flex: 1,
     alignItems: 'center',
   },
   statValue: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: '#0066cc',
-    marginBottom: 4,
+    fontSize: 26,
+    fontWeight: '900',
+    color: '#4fc3f7',
+    marginBottom: 6,
   },
   statLabel: {
     fontSize: 12,
-    color: '#666',
+    color: 'rgba(255, 255, 255, 0.7)',
+    fontWeight: '600',
+    textTransform: 'uppercase',
+    letterSpacing: 0.5,
   },
   itemContainer: {
-    backgroundColor: '#fff',
-    padding: 16,
-    marginHorizontal: 12,
-    marginVertical: 6,
-    borderRadius: 12,
+    backgroundColor: 'rgba(255, 255, 255, 0.08)',
+    padding: 18,
+    marginHorizontal: 16,
+    marginVertical: 8,
+    borderRadius: 16,
+    borderWidth: 1,
+    borderColor: 'rgba(255, 255, 255, 0.1)',
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 3,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 8,
+    elevation: 6,
   },
   itemHeader: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 8,
+    marginBottom: 12,
   },
   iconContainer: {
-    width: 48,
-    height: 48,
-    borderRadius: 24,
-    backgroundColor: '#f5f5f5',
+    width: 54,
+    height: 54,
+    borderRadius: 27,
+    backgroundColor: 'rgba(255, 255, 255, 0.15)',
     justifyContent: 'center',
     alignItems: 'center',
-    marginRight: 12,
+    marginRight: 14,
+    borderWidth: 1,
+    borderColor: 'rgba(255, 255, 255, 0.2)',
   },
   levelIcon: {
-    fontSize: 24,
+    fontSize: 28,
   },
   itemInfo: {
     flex: 1,
   },
   dateText: {
-    fontSize: 16,
-    color: '#333',
-    fontWeight: '500',
-    marginBottom: 4,
+    fontSize: 17,
+    color: '#fff',
+    fontWeight: '700',
+    marginBottom: 6,
   },
   levelText: {
     fontSize: 14,
-    fontWeight: 'bold',
+    fontWeight: '700',
   },
   dbContainer: {
     alignItems: 'flex-end',
   },
   dbValue: {
-    fontSize: 28,
-    fontWeight: 'bold',
-    color: '#333',
+    fontSize: 30,
+    fontWeight: '900',
+    color: '#fff',
   },
   dbUnit: {
     fontSize: 14,
-    color: '#666',
+    color: 'rgba(255, 255, 255, 0.7)',
+    fontWeight: '600',
   },
   locationContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     marginTop: 4,
-    marginBottom: 8,
+    marginBottom: 12,
   },
   locationText: {
     fontSize: 14,
-    color: '#999',
-    marginLeft: 4,
+    color: 'rgba(255, 255, 255, 0.6)',
+    marginLeft: 6,
   },
   itemFooter: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     borderTopWidth: 1,
-    borderTopColor: '#f0f0f0',
-    paddingTop: 12,
+    borderTopColor: 'rgba(255, 255, 255, 0.1)',
+    paddingTop: 14,
   },
   deleteButton: {
-    padding: 4,
+    padding: 6,
   },
   emptyContainer: {
     flex: 1,
@@ -358,14 +375,15 @@ const styles = StyleSheet.create({
     paddingVertical: 60,
   },
   emptyText: {
-    fontSize: 18,
-    color: '#999',
-    marginTop: 16,
-    marginBottom: 8,
+    fontSize: 19,
+    color: 'rgba(255, 255, 255, 0.7)',
+    marginTop: 20,
+    marginBottom: 10,
+    fontWeight: '600',
   },
   emptySubtext: {
-    fontSize: 14,
-    color: '#ccc',
+    fontSize: 15,
+    color: 'rgba(255, 255, 255, 0.5)',
   },
   listEmpty: {
     flexGrow: 1,

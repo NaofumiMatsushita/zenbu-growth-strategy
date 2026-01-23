@@ -165,7 +165,7 @@ const SettingsScreen = () => {
             onValueChange={(value) =>
               setSettings({ ...settings, autoRecord: value })
             }
-            trackColor={{ false: '#ccc', true: '#0066cc' }}
+            trackColor={{ false: 'rgba(255, 255, 255, 0.2)', true: '#4fc3f7' }}
             thumbColor="#fff"
           />
         </View>
@@ -205,7 +205,7 @@ const SettingsScreen = () => {
             onValueChange={(value) =>
               setSettings({ ...settings, notificationEnabled: value })
             }
-            trackColor={{ false: '#ccc', true: '#0066cc' }}
+            trackColor={{ false: 'rgba(255, 255, 255, 0.2)', true: '#4fc3f7' }}
             thumbColor="#fff"
           />
         </View>
@@ -237,17 +237,17 @@ const SettingsScreen = () => {
 
         <TouchableOpacity style={styles.linkButton}>
           <Text style={styles.linkText}>利用規約</Text>
-          <Icon name="chevron-right" size={20} color="#0066cc" />
+          <Icon name="chevron-right" size={22} color="#4fc3f7" />
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.linkButton}>
           <Text style={styles.linkText}>プライバシーポリシー</Text>
-          <Icon name="chevron-right" size={20} color="#0066cc" />
+          <Icon name="chevron-right" size={22} color="#4fc3f7" />
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.linkButton}>
           <Text style={styles.linkText}>お問い合わせ</Text>
-          <Icon name="chevron-right" size={20} color="#0066cc" />
+          <Icon name="chevron-right" size={22} color="#4fc3f7" />
         </TouchableOpacity>
       </View>
 
@@ -265,138 +265,149 @@ const SettingsScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f5f5f5',
+    backgroundColor: '#0a0e27',
   },
   section: {
-    backgroundColor: '#fff',
-    marginTop: 12,
-    padding: 16,
+    backgroundColor: 'rgba(255, 255, 255, 0.08)',
+    marginTop: 16,
+    marginHorizontal: 16,
+    padding: 20,
+    borderRadius: 16,
+    borderWidth: 1,
+    borderColor: 'rgba(255, 255, 255, 0.1)',
   },
   sectionTitle: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#333',
-    marginBottom: 8,
+    fontSize: 19,
+    fontWeight: '700',
+    color: '#fff',
+    marginBottom: 12,
   },
   sectionDescription: {
     fontSize: 14,
-    color: '#666',
-    marginBottom: 16,
+    color: 'rgba(255, 255, 255, 0.7)',
+    marginBottom: 18,
+    lineHeight: 20,
   },
   inputGroup: {
-    marginBottom: 16,
+    marginBottom: 18,
   },
   label: {
     fontSize: 14,
-    fontWeight: '500',
-    color: '#666',
-    marginBottom: 8,
+    fontWeight: '600',
+    color: 'rgba(255, 255, 255, 0.8)',
+    marginBottom: 10,
   },
   input: {
     borderWidth: 1,
-    borderColor: '#e0e0e0',
-    borderRadius: 8,
-    padding: 12,
+    borderColor: 'rgba(255, 255, 255, 0.2)',
+    borderRadius: 12,
+    padding: 14,
     fontSize: 16,
-    color: '#333',
-    backgroundColor: '#fff',
+    color: '#fff',
+    backgroundColor: 'rgba(255, 255, 255, 0.05)',
   },
   inputHint: {
     fontSize: 12,
-    color: '#999',
-    marginTop: 4,
+    color: 'rgba(255, 255, 255, 0.5)',
+    marginTop: 6,
+    lineHeight: 18,
   },
   radioItem: {
     flexDirection: 'row',
     alignItems: 'flex-start',
-    padding: 12,
+    padding: 14,
     borderWidth: 1,
-    borderColor: '#e0e0e0',
-    borderRadius: 8,
+    borderColor: 'rgba(255, 255, 255, 0.2)',
+    borderRadius: 12,
     marginBottom: 12,
+    backgroundColor: 'rgba(255, 255, 255, 0.03)',
   },
   radioItemActive: {
-    borderColor: '#0066cc',
-    backgroundColor: '#f0f7ff',
+    borderColor: '#4fc3f7',
+    backgroundColor: 'rgba(79, 195, 247, 0.1)',
   },
   radioCircle: {
-    width: 24,
-    height: 24,
-    borderRadius: 12,
+    width: 26,
+    height: 26,
+    borderRadius: 13,
     borderWidth: 2,
-    borderColor: '#0066cc',
-    marginRight: 12,
+    borderColor: '#4fc3f7',
+    marginRight: 14,
     justifyContent: 'center',
     alignItems: 'center',
   },
   radioInner: {
-    width: 12,
-    height: 12,
-    borderRadius: 6,
-    backgroundColor: '#0066cc',
+    width: 14,
+    height: 14,
+    borderRadius: 7,
+    backgroundColor: '#4fc3f7',
   },
   radioContent: {
     flex: 1,
   },
   radioTitle: {
     fontSize: 16,
-    fontWeight: '500',
-    color: '#333',
-    marginBottom: 4,
+    fontWeight: '600',
+    color: '#fff',
+    marginBottom: 6,
   },
   radioDescription: {
     fontSize: 14,
-    color: '#666',
+    color: 'rgba(255, 255, 255, 0.7)',
+    lineHeight: 20,
   },
   switchItem: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingVertical: 12,
+    paddingVertical: 14,
   },
   switchContent: {
     flex: 1,
-    marginRight: 12,
+    marginRight: 14,
   },
   switchTitle: {
     fontSize: 16,
-    fontWeight: '500',
-    color: '#333',
-    marginBottom: 4,
+    fontWeight: '600',
+    color: '#fff',
+    marginBottom: 6,
   },
   switchDescription: {
     fontSize: 14,
-    color: '#666',
+    color: 'rgba(255, 255, 255, 0.7)',
+    lineHeight: 20,
   },
   dangerButton: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    padding: 16,
-    borderWidth: 1,
-    borderColor: '#f44336',
-    borderRadius: 8,
+    padding: 18,
+    borderWidth: 2,
+    borderColor: '#ef5350',
+    borderRadius: 12,
+    backgroundColor: 'rgba(239, 83, 80, 0.1)',
   },
   dangerButtonText: {
     fontSize: 16,
-    fontWeight: 'bold',
-    color: '#f44336',
-    marginLeft: 8,
+    fontWeight: '700',
+    color: '#ef5350',
+    marginLeft: 10,
   },
   infoItem: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingVertical: 12,
+    paddingVertical: 14,
     borderBottomWidth: 1,
-    borderBottomColor: '#f0f0f0',
+    borderBottomColor: 'rgba(255, 255, 255, 0.1)',
   },
   infoLabel: {
     fontSize: 16,
-    color: '#666',
+    color: 'rgba(255, 255, 255, 0.7)',
   },
   infoValue: {
     fontSize: 16,
-    color: '#333',
+    color: '#fff',
+    fontWeight: '600',
   },
   linkButton: {
     flexDirection: 'row',
@@ -404,31 +415,32 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingVertical: 16,
     borderBottomWidth: 1,
-    borderBottomColor: '#f0f0f0',
+    borderBottomColor: 'rgba(255, 255, 255, 0.1)',
   },
   linkText: {
     fontSize: 16,
-    color: '#0066cc',
+    color: '#4fc3f7',
+    fontWeight: '600',
   },
   saveButton: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#0066cc',
+    backgroundColor: '#4fc3f7',
     margin: 16,
-    padding: 16,
-    borderRadius: 8,
+    padding: 18,
+    borderRadius: 16,
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.2,
-    shadowRadius: 4,
-    elevation: 4,
+    shadowOffset: { width: 0, height: 6 },
+    shadowOpacity: 0.4,
+    shadowRadius: 12,
+    elevation: 8,
   },
   saveButtonText: {
     fontSize: 18,
-    fontWeight: 'bold',
+    fontWeight: '800',
     color: '#fff',
-    marginLeft: 8,
+    marginLeft: 10,
   },
   bottomSpacer: {
     height: 40,

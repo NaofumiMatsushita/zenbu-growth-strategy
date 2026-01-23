@@ -59,13 +59,13 @@ const MeasurementResultScreen = ({ route, navigation }) => {
       {/* ヘッダー情報 */}
       <View style={styles.headerCard}>
         <View style={styles.dateTimeContainer}>
-          <Icon name="access-time" size={20} color="#666" />
+          <Icon name="access-time" size={22} color="#4fc3f7" />
           <Text style={styles.dateTimeText}>
             {formatDateTime(measurement.startTime)}
           </Text>
         </View>
         <View style={styles.durationContainer}>
-          <Icon name="timer" size={20} color="#666" />
+          <Icon name="timer" size={22} color="#4fc3f7" />
           <Text style={styles.durationText}>
             測定時間: {formatDuration(measurement.duration)}
           </Text>
@@ -110,22 +110,22 @@ const MeasurementResultScreen = ({ route, navigation }) => {
           <Text style={styles.cardTitle}>時系列グラフ</Text>
           <LineChart
             data={chartData}
-            width={screenWidth - 40}
+            width={screenWidth - 72}
             height={220}
             chartConfig={{
-              backgroundColor: '#ffffff',
-              backgroundGradientFrom: '#ffffff',
-              backgroundGradientTo: '#ffffff',
+              backgroundColor: 'rgba(255, 255, 255, 0.05)',
+              backgroundGradientFrom: 'rgba(255, 255, 255, 0.05)',
+              backgroundGradientTo: 'rgba(255, 255, 255, 0.05)',
               decimalPlaces: 1,
-              color: (opacity = 1) => `rgba(0, 102, 204, ${opacity})`,
-              labelColor: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
+              color: (opacity = 1) => `rgba(79, 195, 247, ${opacity})`,
+              labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity * 0.8})`,
               style: {
                 borderRadius: 16,
               },
               propsForDots: {
-                r: '3',
-                strokeWidth: '1',
-                stroke: noiseLevel.color,
+                r: '4',
+                strokeWidth: '2',
+                stroke: '#4fc3f7',
               },
             }}
             bezier
@@ -225,8 +225,8 @@ const MeasurementResultScreen = ({ route, navigation }) => {
           style={[styles.button, styles.secondaryButton]}
           onPress={() => navigation.navigate('Home')}
         >
-          <Icon name="home" size={24} color="#0066cc" />
-          <Text style={[styles.buttonText, { color: '#0066cc' }]}>
+          <Icon name="home" size={24} color="#4fc3f7" />
+          <Text style={styles.buttonText}>
             ホームに戻る
           </Text>
         </TouchableOpacity>
@@ -238,186 +238,218 @@ const MeasurementResultScreen = ({ route, navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f5f5f5',
+    backgroundColor: '#0a0e27',
   },
   headerCard: {
-    backgroundColor: '#fff',
-    padding: 16,
-    marginBottom: 1,
+    backgroundColor: 'rgba(255, 255, 255, 0.08)',
+    padding: 20,
+    marginBottom: 12,
+    marginHorizontal: 16,
+    marginTop: 16,
+    borderRadius: 16,
+    borderWidth: 1,
+    borderColor: 'rgba(255, 255, 255, 0.1)',
   },
   dateTimeContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 8,
+    marginBottom: 12,
   },
   dateTimeText: {
     fontSize: 16,
-    color: '#333',
-    marginLeft: 8,
+    color: '#fff',
+    marginLeft: 10,
+    fontWeight: '600',
   },
   durationContainer: {
     flexDirection: 'row',
     alignItems: 'center',
   },
   durationText: {
-    fontSize: 14,
-    color: '#666',
-    marginLeft: 8,
+    fontSize: 15,
+    color: 'rgba(255, 255, 255, 0.8)',
+    marginLeft: 10,
   },
   resultCard: {
-    padding: 24,
+    padding: 32,
     alignItems: 'center',
-    marginBottom: 1,
+    marginBottom: 12,
+    marginHorizontal: 16,
+    borderRadius: 20,
+    borderWidth: 3,
+    borderColor: 'rgba(255, 255, 255, 0.2)',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 8 },
+    shadowOpacity: 0.4,
+    shadowRadius: 16,
+    elevation: 10,
   },
   resultIcon: {
-    fontSize: 48,
-    marginBottom: 12,
+    fontSize: 56,
+    marginBottom: 16,
   },
   resultTitle: {
-    fontSize: 28,
-    fontWeight: 'bold',
+    fontSize: 32,
+    fontWeight: '900',
     color: '#fff',
-    marginBottom: 16,
+    marginBottom: 20,
   },
   dbContainer: {
     alignItems: 'center',
-    marginBottom: 12,
+    marginBottom: 16,
   },
   dbLabel: {
-    fontSize: 14,
+    fontSize: 15,
     color: '#fff',
-    opacity: 0.9,
-    marginBottom: 4,
+    opacity: 0.95,
+    marginBottom: 8,
+    fontWeight: '600',
   },
   dbValue: {
-    fontSize: 48,
-    fontWeight: 'bold',
+    fontSize: 56,
+    fontWeight: '900',
     color: '#fff',
+    textShadowColor: 'rgba(0, 0, 0, 0.3)',
+    textShadowOffset: { width: 0, height: 2 },
+    textShadowRadius: 4,
   },
   resultDescription: {
-    fontSize: 16,
+    fontSize: 17,
     color: '#fff',
-    opacity: 0.9,
+    opacity: 0.95,
+    textAlign: 'center',
   },
   card: {
-    backgroundColor: '#fff',
-    padding: 16,
-    marginBottom: 1,
+    backgroundColor: 'rgba(255, 255, 255, 0.08)',
+    padding: 20,
+    marginBottom: 12,
+    marginHorizontal: 16,
+    borderRadius: 16,
+    borderWidth: 1,
+    borderColor: 'rgba(255, 255, 255, 0.1)',
   },
   cardTitle: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#333',
-    marginBottom: 12,
+    fontSize: 19,
+    fontWeight: '700',
+    color: '#fff',
+    marginBottom: 16,
   },
   cardSubtitle: {
     fontSize: 14,
-    color: '#666',
-    marginBottom: 12,
+    color: 'rgba(255, 255, 255, 0.7)',
+    marginBottom: 16,
+    lineHeight: 20,
   },
   detailRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingVertical: 12,
+    paddingVertical: 14,
     borderBottomWidth: 1,
-    borderBottomColor: '#f0f0f0',
+    borderBottomColor: 'rgba(255, 255, 255, 0.1)',
   },
   detailLabel: {
     fontSize: 16,
-    color: '#666',
+    color: 'rgba(255, 255, 255, 0.7)',
+    fontWeight: '500',
   },
   detailValue: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#333',
+    fontSize: 19,
+    fontWeight: '800',
+    color: '#fff',
   },
   chart: {
-    marginVertical: 8,
-    borderRadius: 16,
+    marginVertical: 12,
+    borderRadius: 20,
   },
   standardContainer: {
-    marginBottom: 12,
+    marginBottom: 16,
   },
   standardLabel: {
     fontSize: 16,
-    color: '#666',
-    marginBottom: 4,
+    color: 'rgba(255, 255, 255, 0.9)',
+    marginBottom: 6,
+    fontWeight: '600',
   },
   standardValue: {
     fontSize: 14,
-    color: '#999',
+    color: 'rgba(255, 255, 255, 0.6)',
   },
   standardBadge: {
     flexDirection: 'row',
     alignItems: 'center',
-    padding: 12,
-    borderRadius: 8,
+    padding: 16,
+    borderRadius: 12,
   },
   standardMessage: {
     fontSize: 16,
-    fontWeight: 'bold',
-    marginLeft: 8,
+    fontWeight: '700',
+    marginLeft: 10,
   },
   sourceItem: {
     marginBottom: 20,
     paddingBottom: 20,
     borderBottomWidth: 1,
-    borderBottomColor: '#f0f0f0',
+    borderBottomColor: 'rgba(255, 255, 255, 0.1)',
   },
   sourceHeader: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 8,
+    marginBottom: 12,
   },
   sourceIcon: {
-    fontSize: 24,
-    marginRight: 8,
+    fontSize: 26,
+    marginRight: 10,
   },
   sourceName: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: '#333',
+    fontSize: 17,
+    fontWeight: '700',
+    color: '#fff',
   },
   confidenceBar: {
-    height: 8,
-    backgroundColor: '#f0f0f0',
-    borderRadius: 4,
-    marginVertical: 8,
+    height: 10,
+    backgroundColor: 'rgba(255, 255, 255, 0.15)',
+    borderRadius: 5,
+    marginVertical: 10,
     overflow: 'hidden',
   },
   confidenceFill: {
     height: '100%',
-    borderRadius: 4,
+    borderRadius: 5,
   },
   confidenceText: {
     fontSize: 14,
-    color: '#666',
-    marginBottom: 4,
+    color: 'rgba(255, 255, 255, 0.8)',
+    marginBottom: 6,
+    fontWeight: '600',
   },
   sourceDescription: {
     fontSize: 14,
-    color: '#999',
+    color: 'rgba(255, 255, 255, 0.6)',
+    lineHeight: 20,
   },
   noDataText: {
     fontSize: 14,
-    color: '#999',
+    color: 'rgba(255, 255, 255, 0.6)',
     textAlign: 'center',
     paddingVertical: 20,
   },
   actionContainer: {
     flexDirection: 'row',
     alignItems: 'flex-start',
-    backgroundColor: '#fff3e0',
-    padding: 16,
-    borderRadius: 8,
+    backgroundColor: 'rgba(255, 183, 77, 0.15)',
+    padding: 18,
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: 'rgba(255, 183, 77, 0.3)',
   },
   actionText: {
     flex: 1,
-    fontSize: 14,
-    color: '#333',
+    fontSize: 15,
+    color: '#ffb74d',
     marginLeft: 12,
-    lineHeight: 20,
+    lineHeight: 22,
+    fontWeight: '500',
   },
   buttonContainer: {
     padding: 16,
@@ -427,23 +459,28 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    padding: 16,
-    borderRadius: 8,
+    padding: 18,
+    borderRadius: 16,
     marginBottom: 12,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 8,
+    elevation: 6,
   },
   primaryButton: {
-    backgroundColor: '#0066cc',
+    backgroundColor: '#4fc3f7',
   },
   secondaryButton: {
-    backgroundColor: '#fff',
-    borderWidth: 1,
-    borderColor: '#0066cc',
+    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+    borderWidth: 2,
+    borderColor: '#4fc3f7',
   },
   buttonText: {
-    fontSize: 16,
-    fontWeight: 'bold',
+    fontSize: 17,
+    fontWeight: '800',
     color: '#fff',
-    marginLeft: 8,
+    marginLeft: 10,
   },
 });
 
