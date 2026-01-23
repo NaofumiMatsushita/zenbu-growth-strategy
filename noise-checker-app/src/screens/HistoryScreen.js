@@ -8,7 +8,7 @@ import {
   RefreshControl,
   Alert,
 } from 'react';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import { MaterialIcons as Icon } from '@expo/vector-icons';
 import { getAllMeasurements, deleteMeasurement } from '../utils/Storage';
 import { determineNoiseLevel } from '../utils/NoiseAnalyzer';
 

@@ -8,7 +8,7 @@ import {
   Dimensions,
 } from 'react-native';
 import { LineChart } from 'react-native-chart-kit';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import { MaterialIcons as Icon } from '@expo/vector-icons';
 import {
   generateReportSummary,
   compareWithStandard,

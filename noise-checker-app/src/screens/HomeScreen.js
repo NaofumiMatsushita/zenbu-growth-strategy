@@ -8,9 +8,8 @@ import {
   Alert,
   Platform,
 } from 'react-native';
-import { request, PERMISSIONS, RESULTS } from 'react-native-permissions';
-import AudioRecorderPlayer from 'react-native-audio-recorder-player';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import { MaterialIcons as Icon } from '@expo/vector-icons';
+import AudioRecorder from '../utils/AudioRecorder';
 import {
   calculateDb,
   determineNoiseLevel,
@@ -18,7 +17,7 @@ import {
 } from '../utils/NoiseAnalyzer';
 import { saveMeasurement } from '../utils/Storage';
 
-const audioRecorderPlayer = new AudioRecorderPlayer();
+const audioRecorderPlayer = new AudioRecorder();
 
 const HomeScreen = ({ navigation }) => {
   const [isRecording, setIsRecording] = useState(false);
@@ -60,14 +59,9 @@ const HomeScreen = ({ navigation }) => {
 
   const requestMicrophonePermission = async () => {
     try {
-      const permission =
-        Platform.OS === 'ios'
-          ? PERMISSIONS.IOS.MICROPHONE
-          : PERMISSIONS.ANDROID.RECORD_AUDIO;
+      const granted = await audioRecorderPlayer.requestPermissions();
 
-      const result = await request(permission);
-
-      if (result !== RESULTS.GRANTED) {
+      if (!granted) {
         Alert.alert(
           '権限が必要です',
           'マイクへのアクセスが許可されていません。設定から許可してください。',

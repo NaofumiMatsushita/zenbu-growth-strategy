@@ -1,6 +1,48 @@
 {
-  "name": "NoiseChecker",
-  "displayName": "ZENBU騒音チェッカー",
-  "version": "1.0.0",
-  "description": "騒音測定・判定アプリ"
+  "expo": {
+    "name": "ZENBU騒音チェッカー",
+    "slug": "zenbu-noise-checker",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#0a0e27"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.zenbu.noisechecker",
+      "infoPlist": {
+        "NSMicrophoneUsageDescription": "騒音レベルを測定するためにマイクへのアクセスが必要です"
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#0a0e27"
+      },
+      "package": "com.zenbu.noisechecker",
+      "permissions": [
+        "RECORD_AUDIO",
+        "WRITE_EXTERNAL_STORAGE",
+        "READ_EXTERNAL_STORAGE"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "expo-av",
+        {
+          "microphonePermission": "騒音レベルを測定するためにマイクへのアクセスが必要です"
+        }
+      ]
+    ]
+  }
 }
