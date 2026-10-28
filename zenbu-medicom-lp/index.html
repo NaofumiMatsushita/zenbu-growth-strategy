@@ -1,0 +1,608 @@
+<title>ZENBUメディコム</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="ZENBUメディコム株式会社｜ドクターケアを起点に、評判・人材・開業・承継・資産まで。医師とクリニックを支える経営・運営サポート。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500&family=Noto+Sans+JP:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@500;700&display=swap">
+<style>
+/* Layout: one long scroll in calm bands, white ↔ pale mint; the "two arches" M mark recurs as hero, step and contact shapes */
+:root{
+  --bg:#FFFFFF; --band:#F4F9F8; --mint:#E6F3EF; --line:#DCEBE7;
+  --ink:#202C33; --ink-2:#4F5F66;
+  --teal:#087F8C; --teal-deep:#066A75; --on-teal:#FFFFFF; --on-teal-2:#CDE9E4;
+  --card:#FFFFFF; --deep:#0E3A40; --on-deep:#E6F3EF; --on-deep-2:#A9C9C4;
+  --danger:#B4232C;
+  --f-display:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",sans-serif;
+  --f-body:"Noto Sans JP","Hiragino Sans","Yu Gothic",system-ui,sans-serif;
+  --f-latin:"Jost","Futura","Avenir Next",system-ui,sans-serif;
+  --shadow:0 18px 40px rgba(8,127,140,.18);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0E1A1D; --band:#12221F; --mint:#173230; --line:#24403D;
+    --ink:#E4EEEC; --ink-2:#A3B7B4;
+    --teal:#3FA9B4; --teal-deep:#6CC4CC; --on-teal:#0B1C1F; --on-teal-2:#123A3E;
+    --card:#152825; --deep:#0A2A2E; --on-deep:#E6F3EF; --on-deep-2:#9EC2BD;
+    --danger:#F08A8F; --shadow:none; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0E1A1D; --band:#12221F; --mint:#173230; --line:#24403D;
+  --ink:#E4EEEC; --ink-2:#A3B7B4;
+  --teal:#3FA9B4; --teal-deep:#6CC4CC; --on-teal:#0B1C1F; --on-teal-2:#123A3E;
+  --card:#152825; --deep:#0A2A2E; --on-deep:#E6F3EF; --on-deep-2:#9EC2BD;
+  --danger:#F08A8F; --shadow:none; color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(72px + env(safe-area-inset-top,0px))}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.85;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+h1,h2,h3{font-family:var(--f-display);font-weight:700;margin:0;line-height:1.45;text-wrap:balance}
+p{margin:0}
+a{color:var(--teal-deep)}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--teal);outline-offset:3px;border-radius:6px}
+
+.wrap{max-width:1160px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+@media (min-width:720px){.wrap{padding-left:max(32px,env(safe-area-inset-left,0px));padding-right:max(32px,env(safe-area-inset-right,0px))}}
+section{padding-block:96px}
+@media (max-width:720px){section{padding-block:64px}}
+.band{background:var(--band)}
+.eyebrow{font-family:var(--f-latin);font-size:13px;font-weight:500;letter-spacing:.24em;color:var(--teal-deep);text-transform:uppercase;margin-bottom:12px}
+.h2{font-size:clamp(26px,3.4vw,36px)}
+.lead{color:var(--ink-2);max-width:40em;margin-top:16px}
+.head{margin-bottom:48px}
+.head.center{text-align:center}
+.head.center .lead{margin-inline:auto}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 28px;border-radius:999px;font-weight:700;font-size:15px;text-decoration:none;border:1.5px solid transparent;cursor:pointer;font-family:var(--f-body);transition:background .2s,color .2s,transform .2s}
+.btn-primary{background:var(--teal);color:var(--on-teal)}
+.btn-primary:hover{background:var(--teal-deep)}
+.btn-ghost{background:transparent;color:var(--teal-deep);border-color:var(--teal)}
+.btn-ghost:hover{background:var(--mint)}
+.btn svg{width:18px;height:18px}
+
+/* header */
+.site-header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.site-header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:72px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
+.logo svg{width:40px;height:34px;flex:none}
+.logo .word{display:flex;flex-direction:column;line-height:1.15}
+.logo .en{font-family:var(--f-latin);font-weight:500;font-size:17px;letter-spacing:.14em}
+.logo .ja{font-size:11px;color:var(--ink-2);letter-spacing:.08em}
+.nav{display:flex;align-items:center;gap:28px;font-size:14px;font-weight:500}
+.nav a.link{color:var(--ink);text-decoration:none;padding:10px 0}
+.nav a.link:hover{color:var(--teal-deep)}
+.nav .btn{min-height:44px;padding:0 20px;font-size:14px}
+@media (max-width:900px){.nav a.link{display:none}}
+
+/* hero */
+.hero{padding-block:72px 96px;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:center}
+@media (max-width:880px){.hero .wrap{grid-template-columns:1fr;gap:48px}.hero{padding-block:48px 64px}}
+.hero h1{font-size:clamp(34px,5.2vw,56px);line-height:1.35;letter-spacing:.02em}
+.hero h1 em{font-style:normal;color:var(--teal-deep)}
+.hero .sub{font-family:var(--f-display);font-weight:500;font-size:clamp(16px,1.8vw,19px);margin-top:24px}
+.hero .lead{margin-top:12px}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
+.arches{position:relative;width:100%;max-width:480px;aspect-ratio:1/.9;justify-self:center}
+.arch{position:absolute;border-radius:999px 999px 32px 32px;display:flex;flex-direction:column;justify-content:flex-end;padding:0 24px 30px}
+.arch .k{font-family:var(--f-latin);font-size:12px;letter-spacing:.22em}
+.arch .v{font-family:var(--f-display);font-weight:700;font-size:clamp(17px,2vw,20px);line-height:1.5;margin-top:4px}
+.arch.a1{right:0;top:0;width:56%;height:100%;background:var(--mint);padding-left:22%}
+.arch.a1 .k{color:var(--teal-deep)}
+.arch.a2{left:0;top:16%;width:56%;height:84%;background:var(--teal);box-shadow:var(--shadow)}
+.arch.a2 .k{color:var(--on-teal-2)}
+.arch.a2 .v{color:var(--on-teal)}
+.arches .pill{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);background:var(--card);color:var(--teal-deep);border-radius:999px;padding:12px 22px;font-weight:700;font-size:15px;white-space:nowrap;box-shadow:0 8px 24px rgba(32,44,51,.12)}
+@media (max-width:420px){.arch{padding:0 16px 22px}.arch.a1{padding-left:20%}}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+@media (max-width:800px){.stats{grid-template-columns:1fr}}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:32px 28px;min-width:0}
+.stat .num{font-family:var(--f-latin);font-weight:500;font-size:64px;line-height:1;color:var(--teal-deep);font-variant-numeric:tabular-nums}
+.stat .num small{font-family:var(--f-display);font-size:22px;margin-left:4px}
+.stat p{margin-top:16px;color:var(--ink-2);font-size:15px}
+.source{margin-top:20px;font-size:12px;color:var(--ink-2)}
+
+/* mission */
+.mission .wrap{display:grid;grid-template-columns:1fr 1.2fr;gap:64px;align-items:center}
+@media (max-width:880px){.mission .wrap{grid-template-columns:1fr;gap:40px}}
+.mission-mark{background:var(--mint);border-radius:999px 999px 40px 40px;aspect-ratio:1/1.05;max-width:420px;width:100%;display:flex;align-items:center;justify-content:center;justify-self:center}
+.mission-mark svg{width:58%;height:auto}
+.mission .body{display:flex;flex-direction:column;gap:18px;color:var(--ink-2);max-width:36em}
+.mission .body strong{color:var(--ink);font-family:var(--f-display);font-size:19px;font-weight:700;line-height:1.7;display:block;margin-top:8px}
+
+/* support cards */
+.cards4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+@media (max-width:1000px){.cards4{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.cards4{grid-template-columns:1fr}}
+.scard{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:28px 24px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.scard .ic{width:52px;height:52px;border-radius:16px;background:var(--mint);display:flex;align-items:center;justify-content:center;color:var(--teal-deep)}
+.scard .ic svg{width:26px;height:26px}
+.scard .tag{font-family:var(--f-latin);font-size:12px;letter-spacing:.18em;color:var(--teal-deep)}
+.scard h3{font-size:20px}
+.scard p{font-size:14.5px;color:var(--ink-2)}
+
+/* issues */
+.issues{display:flex;flex-direction:column;gap:16px}
+.issue{display:grid;grid-template-columns:1fr 1fr;background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden}
+@media (max-width:760px){.issue{grid-template-columns:1fr}}
+.issue .q,.issue .a{padding:24px 28px;min-width:0}
+.issue .q h3{font-size:18px;display:flex;gap:12px;align-items:flex-start}
+.issue .q h3 svg{flex:none;width:22px;height:22px;margin-top:4px;color:var(--teal-deep)}
+.issue .q p{margin-top:8px;font-size:14.5px;color:var(--ink-2);padding-left:34px}
+.issue .a{background:var(--mint)}
+.issue .a .lbl{font-size:12px;font-weight:700;color:var(--teal-deep);letter-spacing:.12em}
+.issue .a p{margin-top:6px;font-size:15px}
+
+/* doctor care */
+.care-intro{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;margin-bottom:48px}
+@media (max-width:880px){.care-intro{grid-template-columns:1fr;gap:16px}}
+.care-intro .lead{margin-top:0}
+.cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media (max-width:960px){.cards3{grid-template-columns:1fr}}
+.ccard{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:30px 28px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.ccard .tag{font-family:var(--f-latin);font-size:12px;letter-spacing:.2em;color:var(--teal-deep)}
+.ccard h3{font-size:21px}
+.ccard>p{font-size:14.5px;color:var(--ink-2)}
+.spec{margin:auto 0 0;padding-top:16px;border-top:1px solid var(--line);display:grid;grid-template-columns:auto 1fr;gap:6px 16px;font-size:14px}
+.spec dt{color:var(--ink-2)}
+.spec dd{margin:0;font-weight:500}
+.chips{margin-top:auto;padding-top:16px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:8px}
+.chips span{font-size:13px;padding:4px 12px;border-radius:999px;background:var(--mint);color:var(--teal-deep);font-weight:500}
+.note{margin-top:20px;font-size:12.5px;color:var(--ink-2)}
+
+/* succession */
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media (max-width:860px){.pair{grid-template-columns:1fr}}
+.pcard{border-radius:24px;padding:36px 32px;min-width:0;display:flex;flex-direction:column;gap:14px}
+.pcard.p1{background:var(--card);border:1px solid var(--line)}
+.pcard.p2{background:var(--teal);color:var(--on-teal)}
+.pcard .tag{font-family:var(--f-latin);font-size:12px;letter-spacing:.2em;color:var(--teal-deep)}
+.pcard.p2 .tag{color:var(--on-teal-2)}
+.pcard h3{font-size:22px}
+.pcard>p{font-size:15px;color:var(--ink-2)}
+.pcard.p2>p{color:var(--on-teal)}
+.plist{list-style:none;padding:0;margin:8px 0 0;display:flex;flex-direction:column;gap:12px}
+.plist li{display:grid;grid-template-columns:22px 1fr;gap:12px;font-size:15px}
+.plist svg{width:22px;height:22px;margin-top:3px}
+.p1 .plist svg{color:var(--teal-deep)}
+.plist b{display:block;font-weight:700}
+.plist span{color:var(--ink-2);font-size:14px}
+.p2 .plist span{color:var(--on-teal)}
+
+/* vision */
+.vision{background:var(--deep);color:var(--on-deep);text-align:center}
+.vision .eyebrow{color:var(--on-deep-2)}
+.vision h2{font-size:clamp(26px,3.8vw,40px)}
+.vision p{max-width:38em;margin:24px auto 0;color:var(--on-deep-2)}
+
+/* steps */
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;position:relative}
+@media (max-width:900px){.steps{grid-template-columns:1fr}}
+.steps li{background:var(--card);border:1px solid var(--line);border-radius:999px 999px 24px 24px;padding:56px 28px 32px;text-align:center;display:flex;flex-direction:column;gap:12px;min-width:0}
+.steps .n{font-family:var(--f-latin);font-size:13px;letter-spacing:.2em;color:var(--teal-deep)}
+.steps h3{font-size:20px}
+.steps p{font-size:14.5px;color:var(--ink-2);text-align:left}
+.steps li:nth-child(2){background:var(--mint);border-color:transparent}
+.steps li:nth-child(3){background:var(--teal);border-color:transparent;color:var(--on-teal)}
+.steps li:nth-child(3) .n{color:var(--on-teal-2)}
+.steps li:nth-child(3) p{color:var(--on-teal)}
+
+/* why */
+.why{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+@media (max-width:900px){.why{grid-template-columns:1fr;gap:28px}}
+.why>div{border-top:2px solid var(--teal);padding-top:20px;min-width:0}
+.why h3{font-size:19px;margin-bottom:10px}
+.why p{font-size:14.5px;color:var(--ink-2)}
+
+/* company */
+.company{max-width:860px;margin:0 auto;border-top:1px solid var(--line)}
+.company .row{display:grid;grid-template-columns:180px 1fr;gap:16px;padding:20px 4px;border-bottom:1px solid var(--line)}
+@media (max-width:600px){.company .row{grid-template-columns:1fr;gap:2px}}
+.company dt{font-weight:700;color:var(--ink-2);font-size:14px}
+.company dd{margin:0;min-width:0}
+
+/* contact */
+.contact .wrap{display:grid;grid-template-columns:1fr 1.25fr;gap:56px;align-items:start}
+@media (max-width:920px){.contact .wrap{grid-template-columns:1fr;gap:40px}}
+.mailbox{margin-top:32px;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px}
+.mailbox .lbl{font-size:13px;color:var(--ink-2)}
+.mailbox .addr{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:6px}
+.mailbox .addr span{font-family:var(--f-latin);font-size:22px;font-weight:500;user-select:all;overflow-wrap:anywhere}
+.copy{min-height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--line);background:var(--bg);color:var(--teal-deep);font-weight:700;font-size:13px;cursor:pointer;font-family:var(--f-body)}
+.mailbox .hours{font-size:13px;color:var(--ink-2);margin-top:8px}
+form{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:36px 32px;display:flex;flex-direction:column;gap:22px}
+@media (max-width:560px){form{padding:28px 20px}}
+.field{display:flex;flex-direction:column;gap:8px}
+.field label,.field legend{font-weight:700;font-size:14px;display:flex;align-items:center;gap:8px;padding:0}
+.req{font-size:11px;font-weight:700;color:var(--danger);border:1px solid currentColor;border-radius:4px;padding:0 6px;line-height:1.6}
+input[type=text],input[type=email],input[type=tel],textarea{width:100%;min-height:48px;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--bg);color:var(--ink);font:inherit;font-size:16px}
+textarea{min-height:120px;resize:vertical}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+@media (max-width:560px){.grid2{grid-template-columns:1fr}}
+fieldset{border:0;margin:0;padding:0;min-width:0}
+.checks{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+.checks label{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px;border:1px solid var(--line);border-radius:999px;font-size:14px;font-weight:500;cursor:pointer;background:var(--bg)}
+.checks input{accent-color:var(--teal);width:16px;height:16px}
+.checks label:has(input:checked){border-color:var(--teal);background:var(--mint);color:var(--teal-deep)}
+form .btn{width:100%}
+.privacy{font-size:12.5px;color:var(--ink-2);text-align:center}
+.done{background:var(--mint);border-radius:12px;padding:16px 18px;font-size:14.5px}
+.err{color:var(--danger);font-size:13px}
+
+/* footer */
+footer{background:var(--deep);color:var(--on-deep);padding-block:56px 40px}
+footer .wrap{display:flex;flex-direction:column;gap:32px}
+footer .top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:32px}
+footer .logo{color:var(--on-deep)}
+footer .logo .ja{color:var(--on-deep-2)}
+footer .msg{margin-top:16px;font-size:14px;color:var(--on-deep-2);line-height:1.9}
+footer nav{display:grid;grid-template-columns:repeat(2,auto);gap:4px 40px;font-size:14px;align-content:start}
+footer nav a{color:var(--on-deep);text-decoration:none;padding:6px 0}
+footer nav a:hover{text-decoration:underline}
+footer .bottom{border-top:1px solid color-mix(in srgb,var(--on-deep) 18%,transparent);padding-top:20px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;font-size:12.5px;color:var(--on-deep-2)}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="mark" viewBox="0 0 48 40">
+      <path d="M2 38V16a11 11 0 0 1 22 0v22h-7V16a4 4 0 0 0-8 0v22z" fill="var(--teal)"/>
+      <path d="M24 38V12a11 11 0 0 1 22 0v26h-7V12a4 4 0 0 0-8 0v26z" fill="var(--teal-deep)" opacity=".55"/>
+    </symbol>
+    <symbol id="check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="m7.5 12.3 3 3 6-6.3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="q" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M9.4 9.3a2.7 2.7 0 0 1 5.2 1c0 1.9-2.6 2.3-2.6 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="12" cy="17.4" r="1" fill="currentColor"/></symbol>
+  </defs>
+</svg>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="ZENBUメディコム トップへ">
+      <svg aria-hidden="true"><use href="#mark"/></svg>
+      <span class="word"><span class="en">ZENBU MEDICOM</span><span class="ja">ZENBUメディコム</span></span>
+    </a>
+    <nav class="nav" aria-label="メインメニュー">
+      <a class="link" href="#mission">私たちの想い</a>
+      <a class="link" href="#support">サポート内容</a>
+      <a class="link" href="#doctorcare">ドクターケア</a>
+      <a class="link" href="#succession">開業・承継</a>
+      <a class="link" href="#company">会社概要</a>
+      <a class="btn btn-primary" href="#contact">ご相談はこちら</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- Hero -->
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">ZENBU MEDICOM</p>
+      <h1>先生の健康が、<br><em>地域の医療</em>を守る。</h1>
+      <p class="sub">ドクターケアを起点に、評判・人材・開業・承継・資産まで。</p>
+      <p class="lead">医師とクリニックの「困った」を一社でつなぎ、地域医療をまるごと支える経営・運営サポートのパートナーです。</p>
+      <div class="ctas">
+        <a class="btn btn-primary" href="#contact">無料でご相談する
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="btn btn-ghost" href="#support">サポート内容を見る</a>
+      </div>
+    </div>
+    <div class="arches" aria-hidden="true">
+      <div class="arch a1"><span class="k">COMMUNITY</span><span class="v">地域のみなさまの<br>暮らしと人生</span></div>
+      <div class="arch a2"><span class="k">DOCTOR &amp; CLINIC</span><span class="v">医師・<br>クリニック</span></div>
+      <div class="pill">つなぐ・支える</div>
+    </div>
+  </div>
+</section>
+
+<!-- Reality -->
+<section class="band" aria-labelledby="reality-h">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Reality</p>
+      <h2 class="h2" id="reality-h">地域医療は、いま岐路に立っています。</h2>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="num">60.4<small>歳</small></div><p>診療所で働く医師の平均年齢。後継者が見つからず、閉院を考えるクリニックも少なくありません。</p></div>
+      <div class="stat"><div class="num">52.7<small>%</small></div><p>診療所医師のうち、60歳以上が占める割合。半数を超えています。</p></div>
+      <div class="stat"><div class="num">56<small>%</small></div><p>開業の意思がある医師の割合。けれど「リスク」「ノウハウ」「資金」を理由に、一歩を踏みとどまっています。</p></div>
+    </div>
+    <p class="source">出典：厚生労働省「医師・歯科医師・薬剤師統計」（2022年）、医師転職研究所アンケート（医師1,645名）</p>
+  </div>
+</section>
+
+<!-- Mission -->
+<section class="mission" id="mission" aria-labelledby="mission-h">
+  <div class="wrap">
+    <div class="mission-mark" aria-hidden="true"><svg viewBox="0 0 48 40"><use href="#mark"/></svg></div>
+    <div>
+      <p class="eyebrow">Our Mission</p>
+      <h2 class="h2" id="mission-h">住まいの次に、人生を支えるのは<br>医療だと考えています。</h2>
+      <div class="body" style="margin-top:28px">
+        <p>ZENBUグループは「住まいを守ることは、人生を守ること」を使命に、24時間の住まいのサポートを続けてきました。</p>
+        <p>地域の医師とクリニックが元気であること。それが、地域で暮らす人の人生を守ることにつながります。だから私たちは、まず先生ご自身の健康と、クリニックの日々の運営に寄り添うところから始めます。</p>
+        <strong>医師の健康から、評判、人、お金、土地まで。<br>バラバラだった支援を、ひとつにつなぎます。</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Support -->
+<section class="band" id="support" aria-labelledby="support-h">
+  <div class="wrap">
+    <div class="head center">
+      <p class="eyebrow">Support</p>
+      <h2 class="h2" id="support-h">医師とクリニックを支える、4つのサポート</h2>
+      <p class="lead">窓口はひとつ。必要なときに、必要な専門家とつなぎます。</p>
+    </div>
+    <div class="cards4">
+      <article class="scard">
+        <div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M8 11h2l1-2 2 4 1-2h2" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <span class="tag">DOCTOR CARE</span><h3>ドクターケア</h3>
+        <p>先生ご自身の体調・コンディション・メンタルを整える。すべての支援の起点となる領域です。</p>
+      </article>
+      <article class="scard">
+        <div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3.5 2.6 5.3 5.8.8-4.2 4.1 1 5.8L12 16.8l-5.2 2.7 1-5.8L3.6 9.6l5.8-.8z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></div>
+        <span class="tag">REPUTATION</span><h3>デジタル評判管理</h3>
+        <p>Googleマップなどの口コミへの向き合い方を整え、新しい患者さんに選ばれるクリニックへ。</p>
+      </article>
+      <article class="scard">
+        <div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="8.5" r="3" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="16.5" cy="9.5" r="2.5" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M2.5 19c.6-3.2 2.8-5 5.5-5s4.9 1.8 5.5 5M14 14.3c.8-.4 1.6-.6 2.5-.6 2.3 0 4.2 1.5 4.8 4.3" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></div>
+        <span class="tag">MATCHING</span><h3>人材マッチング</h3>
+        <p>管理医師・常勤医の確保や、スタッフの適正配置。人の悩みを、ネットワークで解決します。</p>
+      </article>
+      <article class="scard">
+        <div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10l8-5.5 8 5.5v10M9.5 20v-5.5h5V20M3 20h18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <span class="tag">SUCCESSION</span><h3>開業・承継・資産形成</h3>
+        <p>開業支援、事業承継、金融機関との連携、不動産・土地活用まで。先生の次の一歩に伴走します。</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Issues -->
+<section aria-labelledby="issues-h">
+  <div class="wrap">
+    <div class="head center">
+      <p class="eyebrow">Issues</p>
+      <h2 class="h2" id="issues-h">こんなお悩み、ありませんか。</h2>
+    </div>
+    <div class="issues">
+      <div class="issue">
+        <div class="q"><h3><svg aria-hidden="true"><use href="#q"/></svg>管理医師に頼りきりで、不安がある</h3><p>管理医師が倒れたら閉院のリスク。アルバイトの先生だけでは、継続的な診療が安定しない。</p></div>
+        <div class="a"><span class="lbl">私たちの支援</span><p>先生ご自身の健康を守るドクターケアと、管理医師の確保・常勤化のマッチング。</p></div>
+      </div>
+      <div class="issue">
+        <div class="q"><h3><svg aria-hidden="true"><use href="#q"/></svg>収益の構造が、年々厳しくなっている</h3><p>リハビリの算定区分の見直しや、機器レンタルの制限で収益が下がっている。</p></div>
+        <div class="a"><span class="lbl">私たちの支援</span><p>算定・運用の見直しと、機器調達の代替スキームのご提案。</p></div>
+      </div>
+      <div class="issue">
+        <div class="q"><h3><svg aria-hidden="true"><use href="#q"/></svg>口コミが気になり、新患が増えない</h3><p>Googleマップの評価や口コミへの対応まで、手が回っていない。</p></div>
+        <div class="a"><span class="lbl">私たちの支援</span><p>デジタル評判管理の導入と、日々の運用のサポート。</p></div>
+      </div>
+      <div class="issue">
+        <div class="q"><h3><svg aria-hidden="true"><use href="#q"/></svg>人件費が重いが、急には変えられない</h3><p>固定費を見直したい。でも、スタッフとの信頼関係は損ないたくない。</p></div>
+        <div class="a"><span class="lbl">私たちの支援</span><p>インセンティブの見直し、業務の効率化、役割の再設計による段階的な調整。</p></div>
+      </div>
+      <div class="issue">
+        <div class="q"><h3><svg aria-hidden="true"><use href="#q"/></svg>ひとりで抱え込み、休めない</h3><p>院長がすべてを背負う運営で、長い休みも取れず、疲れがたまっている。</p></div>
+        <div class="a"><span class="lbl">私たちの支援</span><p>複数の医師で複数院を運営し、長期休暇も取れる「チーム医療」の体制づくり。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Doctor care -->
+<section class="band" id="doctorcare" aria-labelledby="care-h">
+  <div class="wrap">
+    <div class="care-intro">
+      <div>
+        <p class="eyebrow">Doctor Care</p>
+        <h2 class="h2" id="care-h">なぜ、「先生の健康」から<br>始めるのか。</h2>
+      </div>
+      <p class="lead">医師が倒れると、クリニックも、地域の医療も止まってしまいます。だから私たちは、まず先生ご自身が心身ともに良い状態で診療を続けられること。そこを、すべての支援の土台にしています。</p>
+    </div>
+    <div class="cards3">
+      <article class="ccard">
+        <span class="tag">RELAX</span><h3>水素吸入サービス</h3>
+        <p>診療の合間や休日に、静かにひと息つける時間を。映像を眺めながら過ごせる、リラックスのための空間をご用意します。</p>
+        <dl class="spec"><dt>時間</dt><dd>1回 約30分</dd><dt>お支払い</dt><dd>キャッシュレス決済に対応</dd></dl>
+      </article>
+      <article class="ccard">
+        <span class="tag">CONDITIONING</span><h3>オリジナルインソール</h3>
+        <p>立ち仕事の多い先生とスタッフの足元から、姿勢とコンディションを見直すきっかけに。1cm刻みのサイズ展開で、一人ひとりの足に合わせます。</p>
+        <dl class="spec"><dt>サイズ</dt><dd>1cm刻み</dd><dt>連携</dt><dd>整形外科の先生方と連携</dd></dl>
+      </article>
+      <article class="ccard">
+        <span class="tag">WELLNESS</span><h3>ウェルネスプログラム</h3>
+        <p>パーソナルトレーニング、ピラティス、食事のコーチングなど。地域のフィットネス施設と連携し、無理なく続けられるメニューを順次ご用意していきます。</p>
+        <div class="chips"><span>パーソナルジム</span><span>ピラティス</span><span>食事コーチング</span><span>骨盤底筋ケア</span></div>
+      </article>
+    </div>
+    <p class="note">※ 各サービスはリラクゼーション・コンディショニングを目的としたもので、疾病の診断・治療・予防を目的とするものではありません。</p>
+  </div>
+</section>
+
+<!-- Succession -->
+<section id="succession" aria-labelledby="succ-h">
+  <div class="wrap">
+    <div class="head center">
+      <p class="eyebrow">Opening &amp; Succession</p>
+      <h2 class="h2" id="succ-h">「ひとりで開業する時代」から、<br>「支えられて開業する時代」へ。</h2>
+      <p class="lead">クリニックを託したい先生と、地域で開業したい先生。その想いを、私たちがつなぎます。</p>
+    </div>
+    <div class="pair">
+      <article class="pcard p1">
+        <span class="tag">SUCCESSOR WANTED</span>
+        <h3>クリニックを託したい先生</h3>
+        <p>後継者が見つからない。地域の患者さんのために、診療は続けたい。</p>
+        <ul class="plist">
+          <li><svg aria-hidden="true"><use href="#check"/></svg><div><b>マッチング</b><span>想いと条件をすり合わせ</span></div></li>
+          <li><svg aria-hidden="true"><use href="#check"/></svg><div><b>資金調達</b><span>金融機関と連携した融資のご相談</span></div></li>
+          <li><svg aria-hidden="true"><use href="#check"/></svg><div><b>地域連携</b><span>地域の医師会と手を取り合って</span></div></li>
+        </ul>
+      </article>
+      <article class="pcard p2">
+        <span class="tag">NEW OPENING</span>
+        <h3>開業したい先生</h3>
+        <p>いつかは地域で開業したい。でも、リスクやノウハウ、資金の面で踏み出せない。</p>
+        <ul class="plist">
+          <li><svg aria-hidden="true"><use href="#check"/></svg><div><b>医療法人での承継・開業という選択肢</b><span>社会的信用が高まり、金融機関からの融資を受けやすくなります。</span></div></li>
+          <li><svg aria-hidden="true"><use href="#check"/></svg><div><b>複数施設への展開</b><span>分院や介護・リハビリ施設など、複数施設への展開がしやすくなります。</span></div></li>
+          <li><svg aria-hidden="true"><use href="#check"/></svg><div><b>立ち上げ期間の短縮</b><span>承継であれば、ゼロからの開業に比べて立ち上げの時間を短縮できます。</span></div></li>
+          <li><svg aria-hidden="true"><use href="#check"/></svg><div><b>専門家と一緒に</b><span>税務・法務は提携の税理士・弁護士とともに、安心して進められます。</span></div></li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Vision -->
+<section class="vision" aria-labelledby="vision-h">
+  <div class="wrap">
+    <p class="eyebrow">Our Vision</p>
+    <h2 id="vision-h">先生が、ちゃんと休める地域医療へ。</h2>
+    <p>ひとりの医師がすべてを抱える運営から、複数の医師で複数のクリニックを支え合う「チーム医療」へ。長い休みも取れて、収入だけでなく暮らしの質も大切にできる。そんな働き方を、地域の先生方と一緒につくっていきます。</p>
+  </div>
+</section>
+
+<!-- Steps -->
+<section class="band" aria-labelledby="steps-h">
+  <div class="wrap">
+    <div class="head center">
+      <p class="eyebrow">Step by Step</p>
+      <h2 class="h2" id="steps-h">先生との信頼から、地域のまちづくりへ。</h2>
+    </div>
+    <ol class="steps">
+      <li><span class="n">STEP 01</span><h3>ドクターケア</h3><p>水素吸入・インソール・ウェルネスを通じて、先生の心と体のコンディションを整えます。</p></li>
+      <li><span class="n">STEP 02</span><h3>運営・開業・承継の支援</h3><p>クリニック運営の安定化、医師のマッチング、開業・事業承継、融資のご相談まで伴走します。</p></li>
+      <li><span class="n">STEP 03</span><h3>医療・介護のまちづくり</h3><p>メディカルビルや介護施設の企画、医療機器の導入、土地活用まで。地域全体で医療を守る仕組みをつくります。</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- Why -->
+<section aria-labelledby="why-h">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Why Us</p>
+      <h2 class="h2" id="why-h">私たちが、お力になれる理由</h2>
+    </div>
+    <div class="why">
+      <div><h3>医療・介護の現場を知るネットワーク</h3><p>医療・介護分野を中心に、約150名の医師・経営者とのつながり。税理士・社労士・金融機関・不動産の専門家とも連携しています。</p></div>
+      <div><h3>ZENBUグループの運営基盤</h3><p>24時間のコールセンター、AIを活用した受付・業務の効率化など、グループで培った仕組みをクリニック運営に活かします。</p></div>
+      <div><h3>地域金融機関との信頼関係</h3><p>地元の金融機関と築いてきた関係を活かし、開業・承継・設備投資の資金計画をご一緒に考えます。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Company -->
+<section class="band" id="company" aria-labelledby="company-h">
+  <div class="wrap">
+    <div class="head center">
+      <p class="eyebrow">Company</p>
+      <h2 class="h2" id="company-h">会社概要</h2>
+    </div>
+    <dl class="company">
+      <div class="row"><dt>社名</dt><dd>ZENBUメディコム株式会社</dd></div>
+      <div class="row"><dt>設立</dt><dd>2026年11月1日</dd></div>
+      <div class="row"><dt>代表者</dt><dd>CEO　松下 直史</dd></div>
+      <div class="row"><dt>所在地</dt><dd>愛知県名古屋市中区正木3-13-8　山田ビル3F</dd></div>
+      <div class="row"><dt>事業内容</dt><dd>医療機関の経営・運営サポート／ドクターケア（水素吸入・インソール・ウェルネス）／医師の人材マッチング／開業・事業承継支援／医療・介護分野の土地活用支援</dd></div>
+      <div class="row"><dt>グループ会社</dt><dd>ZENBU株式会社（親会社）／ZENBUPLUS株式会社</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="contact" id="contact" aria-labelledby="contact-h">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Contact</p>
+      <h2 class="h2" id="contact-h">まずは、お気軽に<br>ご相談ください。</h2>
+      <p class="lead">「まだ具体的ではないけれど、少し話を聞いてみたい」という段階でも大歓迎です。担当者より2営業日以内にご連絡いたします。</p>
+      <div class="mailbox">
+        <p class="lbl">メールでのお問い合わせ</p>
+        <div class="addr"><span id="mail">info@all-zenbu.co.jp</span><button class="copy" type="button" id="copy">コピー</button></div>
+        <p class="hours">受付時間　9:00〜18:00</p>
+      </div>
+    </div>
+    <form id="form" novalidate>
+      <div class="grid2">
+        <div class="field"><label for="f-name">お名前 <span class="req">必須</span></label><input type="text" id="f-name" name="name" autocomplete="name" required></div>
+        <div class="field"><label for="f-org">医療機関名・法人名</label><input type="text" id="f-org" name="org" autocomplete="organization"></div>
+      </div>
+      <div class="grid2">
+        <div class="field"><label for="f-mail">メールアドレス <span class="req">必須</span></label><input type="email" id="f-mail" name="email" autocomplete="email" required></div>
+        <div class="field"><label for="f-tel">電話番号</label><input type="tel" id="f-tel" name="tel" autocomplete="tel"></div>
+      </div>
+      <fieldset class="field">
+        <legend>ご相談内容（複数選択可）</legend>
+        <div class="checks">
+          <label><input type="checkbox" id="t1" name="topic" value="ドクターケア">ドクターケア</label>
+          <label><input type="checkbox" id="t2" name="topic" value="評判・集客">評判・集客</label>
+          <label><input type="checkbox" id="t3" name="topic" value="医師・スタッフの確保">医師・スタッフの確保</label>
+          <label><input type="checkbox" id="t4" name="topic" value="開業・事業承継">開業・事業承継</label>
+          <label><input type="checkbox" id="t5" name="topic" value="土地活用・資産形成">土地活用・資産形成</label>
+        </div>
+      </fieldset>
+      <div class="field"><label for="f-msg">ご相談の詳細</label><textarea id="f-msg" name="message"></textarea></div>
+      <p class="err" id="err" hidden></p>
+      <button class="btn btn-primary" type="submit">この内容で相談する</button>
+      <p class="done" id="done" hidden role="status"></p>
+      <p class="privacy">ご入力いただいた個人情報は、プライバシーポリシーに基づき適切に取り扱います。</p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="top">
+      <div>
+        <a class="logo" href="#top" aria-label="ZENBUメディコム トップへ">
+          <svg aria-hidden="true"><use href="#mark"/></svg>
+          <span class="word"><span class="en">ZENBU MEDICOM</span><span class="ja">ZENBUメディコム</span></span>
+        </a>
+        <p class="msg">住まいを守ることは、人生を守ること。<br>その先にある医療を、地域とともに。</p>
+      </div>
+      <nav aria-label="フッターメニュー">
+        <a href="#mission">私たちの想い</a><a href="#support">サポート内容</a>
+        <a href="#doctorcare">ドクターケア</a><a href="#succession">開業・承継</a>
+        <a href="#company">会社概要</a><a href="#contact">お問い合わせ</a>
+      </nav>
+    </div>
+    <div class="bottom"><span>ZENBUメディコム株式会社　ZENBUグループ</span><span>© 2026 ZENBU MEDICOM Inc.</span></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var copy=document.getElementById('copy'), mail=document.getElementById('mail');
+  copy.addEventListener('click',function(){
+    var t=mail.textContent;
+    function sel(){var r=document.createRange();r.selectNodeContents(mail);var s=getSelection();s.removeAllRanges();s.addRange(r);copy.textContent='選択しました';}
+    try{navigator.clipboard.writeText(t).then(function(){copy.textContent='コピーしました';},sel);}catch(e){sel();}
+    setTimeout(function(){copy.textContent='コピー';},2400);
+  });
+  var form=document.getElementById('form'), err=document.getElementById('err'), done=document.getElementById('done');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var name=form.name.value.trim(), email=form.email.value.trim(), miss=[];
+    if(!name) miss.push('お名前');
+    if(!email) miss.push('メールアドレス');
+    else if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) miss.push('メールアドレス（形式をご確認ください）');
+    if(miss.length){err.textContent='入力してください：'+miss.join('、');err.hidden=false;done.hidden=true;return;}
+    err.hidden=true;
+    done.textContent=name+' 様、入力内容を確認しました。このページは見本のため送信は行われません。お急ぎの方は info@all-zenbu.co.jp までご連絡ください。';
+    done.hidden=false;
+  });
+})();
+</script>
